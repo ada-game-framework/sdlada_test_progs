@@ -1,0 +1,53 @@
+---
+
+name: CI Windows
+
+on:
+  workflow_dispatch:
+  pull_request:
+
+jobs:
+  build:
+    name: CI on windows
+
+    runs-on: windows-latest
+
+    steps:
+    -
+      name: Checkout
+      uses: actions/checkout@v4
+    -
+      name: Checkout sdlada
+      uses: actions/checkout@v4
+      with:
+        repository: ada-game-framework/sdlada.git
+    -
+      name: Checkout sdlada_image
+      uses: actions/checkout@v4
+      with:
+        repository: ada-game-framework/sdlada_image.git
+    -
+      name: Checkout sdlada_ttf
+      uses: actions/checkout@v4
+      with:
+        repository: ada-game-framework/sdlada_ttf.git
+    -
+      name: Checkout sdlada_mixer
+      uses: actions/checkout@v4
+      with:
+        repository: ada-game-framework/sdlada_mixer.git
+    -
+      name: alire-project/setup-alire
+      uses: alire-project/setup-alire@v2
+    -
+      name: Install toolchain
+      run: |
+        alr --non-interactive config --global --set toolchain.assistant false
+        alr --non-interactive toolchain --install gnat_native
+        alr --non-interactive toolchain --install gprbuild
+        alr --non-interactive toolchain --select gnat_native
+        alr --non-interactive toolchain --select gprbuild
+    -
+      name: Build and run
+      run: |
+        alr --non-interactive build
