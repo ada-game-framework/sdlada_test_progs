@@ -1,6 +1,7 @@
 --------------------------------------------------------------------------------------------------------------------
 --  This source code is subject to the Zlib license, see the LICENCE file in the root of this directory.
 --------------------------------------------------------------------------------------------------------------------
+with Ada.Strings.UTF_Encoding.Wide_Wide_Strings;
 with Ada.Real_Time; use Ada.Real_Time;
 with SDL;
 with SDL.Error;
@@ -52,9 +53,12 @@ begin
       SDL.Log.Put_Debug ("Error           : " & SDL.Error.Get);
 
       SDL.Video.Windows.Makers.Create (Win      => W,
-                                       Title    => "Test SDLAda 2.0 - हिन्दी समाचार",
+                                       Title    => Ada.Strings.UTF_Encoding.Wide_Wide_Strings.Encode
+                                                     ("Test SDLAda 2.0 - हिन्दी समाचार"),
                                        Position => SDL.Natural_Coordinates'(X => 100, Y => 100),
                                        Size     => SDL.Positive_Sizes'(800, 640));
+
+      delay 2.0;  --  Just so you can see the first window!
 
       SDL.Log.Put_Debug ("Window Grabbed  : " & Boolean'Image (W.Is_Grabbed));
 
