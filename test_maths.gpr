@@ -1,0 +1,33 @@
+with "config/test_maths_config.gpr";
+
+project Test_Maths is
+   for Library_Name use "testmaths";
+   for Library_Version use Project'Library_Name & ".so." & Test_Maths_Config.Crate_Version;
+
+   for Languages    use ("Ada", "C");
+   for Source_Dirs  use ("src/maths/", "config/");
+   --  For some reason, the source files do not get added without specifying them here.
+   for Source_Files use (
+     "maths.adb",
+     "maths_sub.c",
+     "test_maths_config.ads"
+   );
+   for Object_Dir use "obj/" & Test_Maths_Config.Build_Profile;
+   for Create_Missing_Dirs use "True";
+   for Library_Dir use "lib";
+   for Library_Kind use "relocatable";
+
+   package Compiler is
+      for Default_Switches ("Ada") use Test_Maths_Config.Ada_Compiler_Switches &
+         ("-gnat2022", "-gnata", "-gnato", "-gnatwa", "-gnaty", "-gnaty-s", "-gnatyO", "-gnatyM120", "-gnatyx",
+          "-gnatwaJ");
+   end Compiler;
+
+   package Binder is
+      for Switches ("Ada") use ("-Es"); --  Symbolic traceback
+   end Binder;
+
+   package Install is
+      for Artifacts (".") use ("share");
+   end Install;
+end Test_Maths;

@@ -1,0 +1,37 @@
+name = "sdlada_test_progs"
+description = "Test programs for SDLAda."
+version = "0.0.1"
+
+authors = ["Luke A. Guest"]
+maintainers = ["Luke A. Guest <laguest@archeia.com>"]
+maintainers-logins = ["Lucretia"]
+licenses = "Zlib"
+website = ""
+tags = ["sdl", "ada", "tests"]
+
+project-files = ["test_maths.gpr", "sdlada_test_progs.gpr"]
+
+executables = [
+  "audio",
+  "clipboard",
+  "create_window",
+  "error",
+  "hello_world",
+  "libraries",
+  "mouse",
+  "platform",
+  "stream",
+  "stream2",
+  "surface",
+  "surface_direct_access",
+  "rwops",
+  "test",
+  "timers",
+  "version"
+]
+
+[[depends-on]]
+  sdlada = "^2.3.1"
+
+[[pins]] # TODO: Remove
+  sdlada = { path = "../sdlada" }
