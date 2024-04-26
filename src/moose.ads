@@ -11,7 +11,7 @@ package Moose is
    use type SDL.Dimension;
 
    type Moose_Frames is mod 10;
-   type Moose_Colour_Index is range 1 .. 84;
+   type Moose_Colour_Index is range 0 .. 83;
    type Moose_Palette_Array is array (Moose_Colour_Index'Range) of SDL.Video.Palettes.RGB_Colour;
 
    Moose_Size       : constant SDL.Positive_Sizes  := (64, 88);
