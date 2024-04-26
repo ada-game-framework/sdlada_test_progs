@@ -6,7 +6,7 @@ with SDL.Log;
 
 package body Moose is
    procedure Load_Moose_Data (Data : out Moose_Frame_Data_Array) is
-      Actual_Name : constant String := "../../test/moose.dat";
+      Actual_Name : constant String := "./src/moose.dat";
       Data_File   : Ada.Text_IO.File_Type;
       Stream      : Ada.Text_IO.Text_Streams.Stream_Access := null;
 
