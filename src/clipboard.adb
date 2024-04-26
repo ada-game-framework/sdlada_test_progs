@@ -15,7 +15,8 @@ begin
 
    if SDL.Initialise = True then
       SDL.Video.Windows.Makers.Create (Win      => W,
-                                       Title    => Ada.Strings.UTF_Encoding.Wide_Wide_Strings.Encode ("Test SDLAda 2.0 - हिन्दी समाचार"),
+                                       Title    => Ada.Strings.UTF_Encoding.Wide_Wide_Strings.Encode
+                                                     ("Test SDLAda 2.0 - हिन्दी समाचार"),
                                        Position => SDL.Natural_Coordinates'(X => 100, Y => 100),
                                        Size     => SDL.Positive_Sizes'(800, 640));
 
