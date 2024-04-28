@@ -32,6 +32,12 @@ executables = [
 
 [[depends-on]]
   sdlada = "^2.3.1"
+  sdlada_ttf = "^2.0.0"
+  sdlada_image = "^2.0.0"
+  sdlada_mixer = "^2.0.0"
 
 [[pins]] # TODO: Remove
   sdlada = { path = "../sdlada" }
+  sdlada_ttf = { path = "../sdlada_ttf" }
+  sdlada_image = { path = "../sdlada_image" }
+  sdlada_mixer = { path = "../sdlada_mixer" }
