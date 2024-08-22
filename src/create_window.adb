@@ -53,7 +53,7 @@ begin
                     Colour => SDL.Video.Pixel_Formats.To_Pixel
                                 (S.Pixel_Format, 255, 255, 255));
             W.Update_Surface;
-            SDL.Timers.Wait_Delay (100);
+            SDL.Timers.Wait_Delay (SDL.Timers.Milliseconds (100));
          end loop;
       end;
    end loop;

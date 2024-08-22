@@ -11,6 +11,6 @@ procedure Timers is
 begin
    SDL.Log.Set (Category => SDL.Log.Application, Priority => SDL.Log.Debug);
    SDL.Log.Put_Debug ("Ticks: " & Ticks);
-   SDL.Timers.Wait_Delay (200);
+   SDL.Timers.Wait_Delay (SDL.Timers.Milliseconds (200));
    SDL.Log.Put_Debug ("After Wait_Delay, ticks: " & Ticks);
 end Timers;
