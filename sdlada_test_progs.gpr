@@ -25,7 +25,8 @@ project SDLAda_Test_Progs is
      "rwops.adb",
      "test.adb",
      "timers.adb",
-     "version.adb"
+     "version.adb",
+     "vulkan.adb"
    );
 
    package Compiler is
